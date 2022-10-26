@@ -29,6 +29,11 @@ renderSquare(i) {
 
 handleClick(i) {
     const squares = this.state.squares.slice();
+
+    if(calculateWinner(squares) || squares[i]) {
+        return;
+    }
+
     squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
         squares: squares,
